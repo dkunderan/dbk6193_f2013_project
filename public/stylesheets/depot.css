@@ -154,9 +154,15 @@
   margin-right: 2em;
 }
 
+/* START:inline */
 #store .entry form, #store .entry form div {
   display: inline;
 }
+/* END:inline */
+
+/* START:cartmain */
+/* Styles for the cart in the main page */
+
 #store .cart_title {
   font: 120% bold;
 }
@@ -169,6 +175,11 @@
   font-weight: bold;
   border-top: 1px solid #595;
 }
+/* END:cartmain */
+
+/* START:cartside */
+/* Styles for the cart in the sidebar */
+
 #cart, #cart table {
   font-size: smaller;
   color:     white;
@@ -179,6 +190,10 @@
   border-bottom: 1px dotted #595;
   margin-bottom: 10px;
 }
+/* END:cartside */
+
+/* START:form */
+/* Styles for order form */
 
 .depot_form fieldset {
   background: #efe;
@@ -211,3 +226,11 @@
 .depot_form div {
   margin: 0.5em 0;
 }
+/* END:form */
+
+/* START:i18n */
+.locale {
+  float: right;
+  margin: -0.25em 0.1em;
+}
+/* END:i18n */
