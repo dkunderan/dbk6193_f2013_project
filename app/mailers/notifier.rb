@@ -38,4 +38,10 @@ class Notifier < ActionMailer::Base
 
     mail :to => order.email, :subject => 'Pragmatic Store Order Shipped'
   end
+  
+  #playtime , application failure 
+  def error_occured(error)
+     @error = error
+     mail :to =>  "deeptikunderan@gmail.com", :subject => 'Depot Application Error Incident' 
+  end
 end

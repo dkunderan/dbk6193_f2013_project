@@ -1,9 +1,4 @@
-#START:layout
-#START:main
-#START:cart
-#START:currency
-#START:checkout
-#START:flash
+
 en:
 
 #START:layout
@@ -30,13 +25,7 @@ en:
       empty:       "Empty cart"
       checkout:    "Checkout"
 #END:cart
-
-
-#END:cart
-#END:checkout
-#END:flash
-#END:main
-#END:layout
+#START:currency
   number:
     currency:
       format:
@@ -58,6 +47,10 @@ en:
       pay_type:     "Pay with"
       pay_prompt_html: "Select a payment method"
       submit:       "Place Order"
+    payment_type:
+      cheque:         "Cheque"
+      credit_card:    "Credit Card"
+      purchase_order: "Purchase Order"
 #END:checkout
 
 #START:flash

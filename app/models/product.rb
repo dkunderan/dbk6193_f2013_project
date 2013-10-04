@@ -19,6 +19,7 @@ class Product < ActiveRecord::Base
   validates :image_url, :uniqueness => true
   private
     # ensure that there are no line items referencing this product
+    
     def ensure_not_referenced_by_any_line_item
       if line_items.empty?
         return true
@@ -27,4 +28,12 @@ class Product < ActiveRecord::Base
         return false
       end
     end
+    
+    #playtime adding locale to product db.
+    def self.find_products_for_sale
+    	find(:all, :order => "title", :conditions => {:locale => I18n.locale})
+    end
+
+    validates_presence_of :title, :description, :locale
+    validates_numericality_of :price
 end
