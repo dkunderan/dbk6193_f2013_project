@@ -1,0 +1,25 @@
+<h1>Listing amazon_gift_cards</h1>
+
+<table>
+  <tr>
+    <th>Code</th>
+    <th>Used</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @amazon_gift_cards.each do |amazon_gift_card| %>
+  <tr>
+    <td><%= amazon_gift_card.code %></td>
+    <td><%= amazon_gift_card.used %></td>
+    <td><%= link_to 'Show', amazon_gift_card %></td>
+    <td><%= link_to 'Edit', edit_amazon_gift_card_path(amazon_gift_card) %></td>
+    <td><%= link_to 'Destroy', amazon_gift_card, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Amazon gift card', new_amazon_gift_card_path %>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ReDSSoCS</title>
+  <style>
+    div.thin_grey_line {
+      border-bottom-style: solid;
+      border-bottom-width: 1px;
+      border-bottom-color: rgb(233,233,233);
+      width: 100%;
+    }
+  </style>
+  <script src="/assets/jquery.js?body=1" type="text/javascript"></script>
+<script src="/assets/jquery_ujs.js?body=1" type="text/javascript"></script>
+<script src="/assets/estimate.js?body=1" type="text/javascript"></script>
+<script src="/assets/surveyor/jquery-1.9.0.js?body=1" type="text/javascript"></script>
+<script src="/assets/surveyor/jquery-ui-1.10.0.custom.js?body=1" type="text/javascript"></script>
+<script src="/assets/surveyor/jquery-ui-timepicker-addon.js?body=1" type="text/javascript"></script>
+<script src="/assets/surveyor/jquery.selectToUISlider.js?body=1" type="text/javascript"></script>
+<script src="/assets/surveyor/jquery.surveyor.js?body=1" type="text/javascript"></script>
+<script src="/assets/surveyor/jquery.maskedinput.js?body=1" type="text/javascript"></script>
+<script src="/assets/surveyor_all.js?body=1" type="text/javascript"></script>
+<script src="/assets/application.js?body=1" type="text/javascript"></script>
+  <meta content="authenticity_token" name="csrf-param" />
+<meta content="151wnXoy6iSti+c9r+lw8fyMBahdJ01gGzTZmTIhB98=" name="csrf-token" />
+  
+  
+</head>
+<body>
+
+<div id="fb-root"></div>
+<script>
+  //  Copied from: https://developers.facebook.com/docs/reference/javascript/
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '179445217929', // App ID
+      channelUrl : 'http://caribou.rit.edu:7007/facebook/channel', // Channel File
+      status     : true, // check login status
+      cookie     : true, // enable cookies to allow the server to access the session
+      xfbml      : true  // parse XFBML
+    });
+
+    // Additional initialization code here
+  };
+
+  // Load the SDK Asynchronously
+  (function(d){
+     var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement('script'); js.id = id; js.async = true;
+     js.src = "//connect.facebook.net/en_US/all.js";
+     ref.parentNode.insertBefore(js, ref);
+   }(document));
+</script>
+
+
+<div style="margin-left: 5em; margin-right: 5em;">
+
+  <div style="margin-top: 1em; font-size: 1.2em;">
+    You are eligible to take this survey!
+    Please read the information in the box below and indicate whether
+    or not
+    you agree to participate. 
+  </div>
+
+  <div style="margin-top: 1em; margin-bottom: 1em;">
+    <iframe src="/consent/info_letter_content" 
+            style="width: 100%; height: 300px;"></iframe>
+  </div>
+
+  <div style="width: 100%;">
+    <span style="float: left;">
+ <form accept-charset="UTF-8" action="/surveyor/create" id="create_survey_form" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="151wnXoy6iSti+c9r+lw8fyMBahdJ01gGzTZmTIhB98=" /></div>
+    <input id="survey_code" name="survey_code" type="hidden" value="redssocs" />
+
+    <div id="facebook_login_button" style="margin-top: 1em;">
+      <fb:login-button 
+        show-faces="false"
+        scope="user_relationships,user_relationship_details,friends_relationships,friends_relationship_details"
+        onlogin="$('#create_survey_form').submit()">
+        I agree to participate
+      </fb:login-button>
+       <a href="http://caribou.rit.edu:7007/consent/facebook_login?commit=I+Agree"> (Why do we need Facebook?)</a>
+  </div>
+
+</form>
+or </br>
+    <a href="http://caribou.rit.edu:7007/consent/did_not_consent?commit=Cancel">I do not wish to participate</a>
+    </span>
+
+    <span style="float: right;">
+      <a href="http://caribou.rit.edu:7007/info_letter.pdf">Download a Copy of this Letter</a>
+    </span>
+  </div>
+
+ 
+</div>
+
+
+</body>
+</html>

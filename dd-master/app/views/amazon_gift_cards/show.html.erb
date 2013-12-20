@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Code:</b>
+  <%= @amazon_gift_card.code %>
+</p>
+
+<p>
+  <b>Used:</b>
+  <%= @amazon_gift_card.used %>
+</p>
+
+
+<%= link_to 'Edit', edit_amazon_gift_card_path(@amazon_gift_card) %> |
+<%= link_to 'Back', amazon_gift_cards_path %>

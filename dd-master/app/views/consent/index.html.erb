@@ -1,0 +1,60 @@
+<script>
+  function toggle_consent_checkboxes() {
+    if ($('#redssocs_survey_consent_read_and_understand').is(':checked') &&
+         $('#redssocs_survey_consent_eighteen_or_older').is(':checked'))
+    {
+      $('#redssocs_survey_consent_dont_meet_all_criteria').attr('checked', false);
+      $('#redssocs_survey_consent_dont_meet_all_criteria').attr('disabled', 'disabled');
+      $('#take_the_survey').removeAttr('disabled');
+    }
+    else {
+      $('#redssocs_survey_consent_dont_meet_all_criteria').removeAttr('disabled');
+      $('#take_the_survey').attr('disabled', 'disabled');
+    }
+  }
+  
+  function toggle_take_the_survey_button() {
+    if ($('#redssocs_survey_consent_dont_meet_all_criteria').is(':checked')) {
+      $('#redssocs_survey_consent_read_and_understand').attr('disabled', 'disabled');
+      $('#redssocs_survey_consent_eighteen_or_older').attr('disabled', 'disabled');
+    }
+    else {
+      $('#redssocs_survey_consent_read_and_understand').removeAttr('disabled');
+      $('#redssocs_survey_consent_eighteen_or_older').removeAttr('disabled');
+    }
+  }
+</script>
+
+<div style="margin-left: 3em; margin-right: 3em;">
+
+  <h1>Welcome!</h1>
+
+  <p>
+    By participating in this research study you can make an important
+    contribution to the health of RIT students and earn five dollars
+    or more at Amazon.com for doing so. This online survey is being 
+    conducted by researchers here at the 
+    Rochester Institute of Technology. This 
+    study is intended to show that online social networks such as 
+    Facebook can be used to facilitate healthy lifestyles,
+    particularly with respect to sexual health. 
+  </p>
+
+  
+  <%= form_for @student, :url => { :controller => 'consent', :action => 'info_letter' } do |f| %>
+
+  
+  
+
+      <%= label_tag 'school', 'Which school do you attend?'%>
+    <p>
+      <%= f.radio_button :student_type, "RIT" %> RIT
+   <%= f.radio_button  :student_type, "OTHER"%> Other
+    </p>
+ <p>
+      <%= submit_tag "Check eligibility" %>
+    </p>
+
+  <% end %>
+  
+</div>

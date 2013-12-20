@@ -1,0 +1,25 @@
+<%= form_for(@amazon_gift_card) do |f| %>
+  <% if @amazon_gift_card.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@amazon_gift_card.errors.count, "error") %> prohibited this amazon_gift_card from being saved:</h2>
+
+      <ul>
+      <% @amazon_gift_card.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :code %><br />
+    <%= f.text_field :code %>
+  </div>
+  <div class="field">
+    <%= f.label :used %><br />
+    <%= f.number_field :used %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
